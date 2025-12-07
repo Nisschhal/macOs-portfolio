@@ -1,17 +1,31 @@
-import { NAV_LINKS } from "#constants"
-
+import { navIcons, navLinks } from "#constants"
+import dayjs from "dayjs"
 const NavBar = () => {
   return (
     <nav>
       <div>
         <img src="/images/logo.svg" alt="macos style portfolio logo" />
-        <p className="font-semibold">Nischal's Portfolio</p>
+        <p className="font-medium">Nischal's Portfolio</p>
 
         <ul>
-          {NAV_LINKS.map(({ id, name }: { id: number; name: string }) => (
-            <li key={id}>{name}</li>
+          {navLinks.map(({ id, name }) => (
+            <li key={id}>
+              <p>{name}</p>
+            </li>
           ))}
         </ul>
+      </div>
+
+      {/* Right Side icons and date */}
+      <div>
+        <ul>
+          {navIcons.map(({ id, img }) => (
+            <li key={id}>
+              <img src={img} alt={`icon-${id}`} className="icon-hover" />
+            </li>
+          ))}
+        </ul>
+        <time>{dayjs().format("ddd D MMM h:mm A")}</time>
       </div>
     </nav>
   )
