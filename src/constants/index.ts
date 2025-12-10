@@ -204,6 +204,8 @@ const gallery = [
   },
 ]
 
+export type DockApps = (typeof dockApps)[0]
+
 export {
   navLinks,
   navIcons,
@@ -503,4 +505,5 @@ const WINDOW_CONFIG = {
   imgfile: { isOpen: false, zIndex: INITIAL_Z_INDEX, data: null },
 }
 
+export type WindowConfig = typeof WINDOW_CONFIG
 export { INITIAL_Z_INDEX, WINDOW_CONFIG }

@@ -118,11 +118,26 @@ body {
     }
 
     .dock-icon {
-      @apply size-14 3xl:size-20 cursor-pointer;
+      @apply relative size-14 3xl:size-20 cursor-pointer;
 
       img {
         @apply object-cover object-center;
       }
+    }
+    .dock-icon::after {
+      content: "";
+      position: absolute;
+      bottom: -2px;
+      width: 4px;
+      height: 4px;
+      background: white;
+      border-radius: 50%;
+      opacity: 0;
+      transition: opacity 0.2s;
+    }
+
+    .dock-icon.has-open-window::after {
+      opacity: 0.6;
     }
   }
 

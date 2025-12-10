@@ -29,14 +29,11 @@ const setupTextHover = (
 
   const handleMouseMove = (e: MouseEvent) => {
     // get the mouse position
-    const { clientX, clientY } = e
-    console.log(clientX, clientY, "clientX, clientY")
+    const { clientX } = e
     // get the container left postion
-    const { left, top, width, height } = container.getBoundingClientRect()
-    console.log(left, top, width, height, "left, top, width, height")
+    const { left } = container.getBoundingClientRect()
     // calculate the mouse position relative to the container
     const mouseX = clientX - left
-    console.log(mouseX, "mouseX")
 
     letters.forEach((letter) => {
       const { left: l, width: w } = letter.getBoundingClientRect()
@@ -99,19 +96,21 @@ const Welcome = () => {
 
   return (
     <section id="welcome">
-      <div className="space-y-7 text-center">
-        <p ref={subHeaderRef} className="shiny-text">
-          {renderText("Hey there! 👋🏻", "text-3xl font-georama", 100)}
-        </p>
-        <p ref={subTitleRef}>
-          {renderText(
-            "I'm Nischal! Welcome to my",
-            "shiny-text text-3xl font-georama",
-            100
-          )}
-        </p>
+      <div className="space-y-2 text-center">
+        <div className="space-y-1">
+          <p ref={subHeaderRef} className="shiny-text">
+            {renderText("Hey there! 👋🏻", "text-3xl font-georama", 100)}
+          </p>
+          <p ref={subTitleRef}>
+            {renderText(
+              "I'm Nischal! Welcome to my",
+              "text-3xl font-georama",
+              100
+            )}
+          </p>
+        </div>
         <h1 ref={titleRef} className="">
-          {renderText(" Portfolio", "shiny-text text-9xl font-georama italic")}
+          {renderText(" Portfolio", "text-9xl font-georama italic")}
         </h1>
       </div>
       <div className="small-screen">
